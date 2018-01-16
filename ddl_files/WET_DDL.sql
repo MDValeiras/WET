@@ -9,7 +9,6 @@ Database Driver: MySQL Connector Java mysql-connector-java-5.1.39 ( Revision: 32
 
 /* UPDATE DDL */
 /* DROP AND CREATE DDL */
-/* WARNING: The DDL commented out below will drop and re-create all tables.
     drop table if exists `WET_ACTIVITY_VW`;
 
     drop table if exists `WET_ACTIVITY`;
@@ -126,4 +125,4 @@ Database Driver: MySQL Connector Java mysql-connector-java-5.1.39 ( Revision: 32
         `ACTIVE` boolean,
         primary key (`EVENT_TYPE_ID`)
     ) ENGINE=InnoDB;
-*/
+
