@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>WET_query_getWetRefEventTypeByClassSubClass</name>
+        <uuid>_a-0000dd83-e4fe-8000-4594-010000010000_445132</uuid>
+        <description>Query WET_REF_EVENT_TYPE by class and subclass
+Input: Event Type Class (text), SubClass (text)
+Output: DataSubset of Event Ref Type (CDT)</description>
+        <parentUuid>_a-0000dc28-0572-8000-4594-010000010000_235326</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>= #"SYSTEM_SYSRULES_queryEntity"(
+  entity: #"_a-0000dd45-ed6e-8000-4594-010000010000_415701",
+  query: #"SYSTEM_SYSRULES_query"(
+    logicalExpression: #"SYSTEM_SYSRULES_queryLogicalExpression"(
+      operator: "AND",
+      filters: {
+        #"SYSTEM_SYSRULES_queryFilter"(
+          field: "class",
+          operator: "=",
+          value: ri!eventTypeClass
+        ),
+        #"SYSTEM_SYSRULES_queryFilter"(
+          field: "subClass",
+          operator: "=",
+          value: ri!eventTypeSubClass
+        )
+      }
+    ),
+    paginginfo: #"SYSTEM_SYSRULES_pagingInfo"(
+      startIndex: 1,
+      batchSize: - 1
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>eventTypeClass</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>eventTypeSubClass</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name>CreditDecisioning and Eagle RM</a:name>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">="CreditDecisioning"</a:value>
+                    <a:nameRef>eventTypeClass</a:nameRef>
+                    <a:id>1</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">="Eagle RM"</a:value>
+                    <a:nameRef>eventTypeSubClass</a:nameRef>
+                    <a:id>2</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+</contentHaul>

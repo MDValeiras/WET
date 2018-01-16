@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>WET_query_getCommentTypeByDesc</name>
+        <uuid>_a-0000dd93-94b7-8000-4594-010000010000_445748</uuid>
+        <description>WET_query_getCommentTypeByDesc</description>
+        <parentUuid>_a-0000dc28-0572-8000-4594-010000010000_235325</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=#"SYSTEM_SYSRULES_queryEntity"(&#xD;
+  entity: #"_a-0000dd93-94b7-8000-4594-010000010000_445759",&#xD;
+  query: #"SYSTEM_SYSRULES_query"(&#xD;
+    filter: #"SYSTEM_SYSRULES_queryFilter"(&#xD;
+      field: "description",&#xD;
+      operator: "=",&#xD;
+      value: ri!description&#xD;
+    ),&#xD;
+    paginginfo: &#xD;
+      #"SYSTEM_SYSRULES_pagingInfo"(&#xD;
+        startIndex: 1,&#xD;
+        batchSize: - 1&#xD;
+      )&#xD;
+    )  &#xD;
+)&#xD;
+</definition>
+        <namedTypedValue>
+            <name>description</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

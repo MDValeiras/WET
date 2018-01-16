@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>WET_query_getWetRefActivityTypeByActivityType</name>
+        <uuid>_a-0000ddc7-2401-8000-4594-010000010000_468290</uuid>
+        <description>Rule to retrieve the WET Activity Type by Activity Type name</description>
+        <parentUuid>_a-0000dc28-0572-8000-4594-010000010000_235326</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>= if(
+    #"_a-0000d62a-67b3-8000-da6f-010000010000_950"(
+      ri!activityType
+  ),
+  todatasubset(
+    {},
+    topaginginfo(
+      1,
+      - 1
+    )
+  ),
+  #"SYSTEM_SYSRULES_queryEntity"(
+    entity: #"_a-0000ddc7-2401-8000-4594-010000010000_468291",
+    query: #"SYSTEM_SYSRULES_query"(
+      logicalExpression: #"SYSTEM_SYSRULES_queryLogicalExpression"(
+        operator: "AND",
+        filters: {
+          #"SYSTEM_SYSRULES_queryFilter"(
+            field: "activityType",
+            operator: "=",
+            value: ri!activityType
+          )
+        }
+      ),
+      pagingInfo: topaginginfo(
+        1,
+        - 1
+      )
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>activityType</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name>4578-ORIGINATION</a:name>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string">ORIGINATION</a:value>
+                    <a:nameRef>activityType</a:nameRef>
+                    <a:id>2</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+            <el>
+                <a:name>ORIGINATION</a:name>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string">ORIGINATION</a:value>
+                    <a:nameRef>activityType</a:nameRef>
+                    <a:id>2</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+</contentHaul>

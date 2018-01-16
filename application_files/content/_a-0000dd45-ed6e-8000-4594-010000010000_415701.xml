@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <constant>
+        <name>WET_REF_EVENT_TYPE_DATASTORE_ENTITY</name>
+        <uuid>_a-0000dd45-ed6e-8000-4594-010000010000_415701</uuid>
+        <description>Constant pointing to WET_REF_EVENT_TYPE data store entity</description>
+        <parentUuid>_a-0000dc28-0572-8000-4594-010000010000_243117</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <typedValue>
+            <type>
+                <name>DataStoreEntity</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+            <value a:id="88c8c0d8-8dac-42df-bb54-ea9790b3270b@_a-0000dc02-244c-8000-4594-010000010000_217942"/>
+        </typedValue>
+    </constant>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

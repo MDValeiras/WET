@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <queryRule>
+        <name>WET_getWetEventByIds</name>
+        <uuid>bac41089-2449-4a9f-957c-3688d6146a1d</uuid>
+        <description></description>
+        <folderUuid>_a-0000dc28-0572-8000-4594-010000010000_235325</folderUuid>
+        <dataStoreEntityCompositeUuid>d9252cd7-f1d2-47ad-839c-e30a56f4a6ae@_a-0000dc02-244c-8000-4594-010000010000_217942</dataStoreEntityCompositeUuid>
+        <params>
+            <param>
+                <description></description>
+                <name>ids</name>
+                <type>{http://www.appian.com/ae/types/2009}Integer?list</type>
+            </param>
+        </params>
+        <filters>
+            <filter>
+                <field>
+                    <name>eventId</name>
+                    <type>{http://www.w3.org/2001/XMLSchema}int</type>
+                </field>
+                <op>in</op>
+                <value>ids</value>
+                <valueType>PARAMETER</valueType>
+            </filter>
+        </filters>
+        <orderings/>
+    </queryRule>
+    <roleMap public="false">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

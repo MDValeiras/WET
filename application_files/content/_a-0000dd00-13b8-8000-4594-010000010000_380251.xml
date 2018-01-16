@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>WET_query_getActivityByContextEntityIdAndActivityTypeID</name>
+        <uuid>_a-0000dd00-13b8-8000-4594-010000010000_380251</uuid>
+        <description>Rule to retrieve the WET activity associated with a Context Entity object</description>
+        <parentUuid>_a-0000dc28-0572-8000-4594-010000010000_235326</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>= if(
+  or(
+    #"_a-0000d62a-67b3-8000-da6f-010000010000_950"(
+      ri!contextEntityId
+    ),
+    #"_a-0000d62a-67b3-8000-da6f-010000010000_950"(
+      ri!activityTypeID
+    )
+  ),
+  todatasubset(
+    {},
+    topaginginfo(
+      1,
+      - 1
+    )
+  ),
+  #"SYSTEM_SYSRULES_queryEntity"(
+    entity: #"_a-0000dcc0-777a-8000-4594-010000010000_347926",
+    query: #"SYSTEM_SYSRULES_query"(
+      logicalExpression: #"SYSTEM_SYSRULES_queryLogicalExpression"(
+        operator: "AND",
+        filters: {
+          #"SYSTEM_SYSRULES_queryFilter"(
+            field: "contextEntityId",
+            operator: "=",
+            value: ri!contextEntityId
+          ),
+          #"SYSTEM_SYSRULES_queryFilter"(
+            field: "activityTypeId",
+            operator: "=",
+            value: ri!activityTypeID
+          )
+        }
+      ),
+      pagingInfo: topaginginfo(
+        1,
+        - 1
+      )
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>contextEntityId</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>activityTypeID</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>
